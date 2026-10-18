@@ -11,6 +11,27 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-default-key')
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = ['*']
+# 1. Configuración de Plantillas (Templates)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR / 'templates'],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+# 2. Redirección de autenticación
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'proveedor_list'
+LOGOUT_REDIRECT_URL = 'login'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -40,6 +61,7 @@ DATABASES = {
         conn_max_age=600
     )
 }
+
 
 # Estáticos
 STATIC_URL = 'static/'
