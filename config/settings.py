@@ -11,11 +11,18 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-local-development-key-chan
 DEBUG = os.getenv('DEBUG', 'True').strip().lower() in ('1', 'true', 'yes', 'on')
 ALLOWED_HOSTS = [host.strip() for host in os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1,[::1]').split(',') if host.strip()]
 
+SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-default-key')
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
+
+ALLOWED_HOSTS = ['*']
+
 # Definimos ROOT_URLCONF aquí arriba para evitar que se omita
 ROOT_URLCONF = 'config.urls'
 
+
 # Coincide con la migración 0002 que deja los IDs de Compra y Proveedor como AutoField.
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # 1. Configuración de Plantillas (Templates)
 TEMPLATES = [
@@ -37,6 +44,7 @@ TEMPLATES = [
 # 2. Redirección de autenticación
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'proveedor_list'
 LOGOUT_REDIRECT_URL = 'login'
 
 INSTALLED_APPS = [
@@ -73,5 +81,16 @@ else:
 
 # Estáticos
 STATIC_URL = '/static/'
+=======
+DATABASES = {
+    'default': dj_database_url.config(
+        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
+        conn_max_age=600
+    )
+}
+
+# Estáticos
+STATIC_URL = 'static/'
+>>>>>>> c571ae6db112c2095cba5a3373834bf51fdef592
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'static']

@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Validaciones para Formulario de Proveedor
     const proveedorForm = document.getElementById('id_razon_social')?.form;
+    const proveedorForm = document.querySelector('form[action*="proveedor"]');
     if (proveedorForm) {
         proveedorForm.addEventListener('submit', function (e) {
             let esValido = true;
@@ -48,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Validaciones para Formulario de Compra
     const compraForm = document.getElementById('id_numero_compra')?.form;
+    const compraForm = document.querySelector('form[action*="compra"]');
     if (compraForm) {
         compraForm.addEventListener('submit', function (e) {
             let esValido = true;

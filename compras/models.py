@@ -49,6 +49,7 @@ class Compra(models.Model):
     )
     fecha_compra = models.DateField(verbose_name="Fecha de Compra")
     descripcion = models.TextField(verbose_name="Descripción de bienes o servicios")
+
     
     # NUEVO ATRIBUTO DE SUSTENTACIÓN (Texto opcional o detalles de soporte)
     sustentacion = models.CharField(
@@ -57,6 +58,7 @@ class Compra(models.Model):
         null=True, 
         verbose_name="Sustentación"
     )
+
 
     valor_total = models.DecimalField(
         max_digits=12, 

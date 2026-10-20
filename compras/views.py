@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from .models import Proveedor, Compra
@@ -53,7 +54,10 @@ def proveedor_update(request, pk):
     return render(request, 'compras/proveedor_form.html', {'form': form, 'titulo': 'Editar Proveedor'})
 
 @login_required
+
 @require_POST
+
+
 def proveedor_delete(request, pk):
     proveedor = get_object_or_404(Proveedor, pk=pk)
     if proveedor.compras.exists():
@@ -114,7 +118,10 @@ def compra_update(request, pk):
     return render(request, 'compras/compra_form.html', {'form': form, 'titulo': 'Editar Compra'})
 
 @login_required
+
 @require_POST
+=======
+>>>>>>> c571ae6db112c2095cba5a3373834bf51fdef592
 def compra_delete(request, pk):
     compra = get_object_or_404(Compra, pk=pk)
     compra.delete()
