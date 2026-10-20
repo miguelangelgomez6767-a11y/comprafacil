@@ -120,8 +120,6 @@ def compra_update(request, pk):
 @login_required
 
 @require_POST
-=======
->>>>>>> c571ae6db112c2095cba5a3373834bf51fdef592
 def compra_delete(request, pk):
     compra = get_object_or_404(Compra, pk=pk)
     compra.delete()

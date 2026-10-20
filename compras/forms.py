@@ -27,12 +27,15 @@ class ProveedorForm(forms.ModelForm):
 class CompraForm(forms.ModelForm):
     class Meta:
         model = Compra
-        fields = ['numero_compra', 'proveedor', 'fecha_compra', 'descripcion', 'valor_total', 'estado']
+        # Se añade 'sustentacion' en los campos del formulario
+        fields = ['numero_compra', 'proveedor', 'fecha_compra', 'descripcion', 'sustentacion', 'valor_total', 'estado']
         widgets = {
             'numero_compra': forms.TextInput(attrs={'class': 'form-control', 'id': 'id_numero_compra'}),
             'proveedor': forms.Select(attrs={'class': 'form-select', 'id': 'id_proveedor'}),
             'fecha_compra': forms.DateInput(attrs={'class': 'form-control', 'type': 'date', 'id': 'id_fecha_compra'}),
             'descripcion': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'id': 'id_descripcion'}),
+            # Widget agregado para la sustentación
+            'sustentacion': forms.TextInput(attrs={'class': 'form-control', 'id': 'id_sustentacion'}),
             'valor_total': forms.NumberInput(attrs={'class': 'form-control', 'step': '0.01', 'id': 'id_valor_total'}),
             'estado': forms.Select(attrs={'class': 'form-select', 'id': 'id_estado'}),
         }

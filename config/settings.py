@@ -81,7 +81,7 @@ else:
 
 # Estáticos
 STATIC_URL = '/static/'
-=======
+
 DATABASES = {
     'default': dj_database_url.config(
         default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
@@ -91,6 +91,5 @@ DATABASES = {
 
 # Estáticos
 STATIC_URL = 'static/'
->>>>>>> c571ae6db112c2095cba5a3373834bf51fdef592
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'static']
