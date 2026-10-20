@@ -15,6 +15,8 @@ ALLOWED_HOSTS = ['*']
 # Definimos ROOT_URLCONF aquí arriba para evitar que se omita
 ROOT_URLCONF = 'config.urls'
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 # 1. Configuración de Plantillas (Templates)
 TEMPLATES = [
     {
