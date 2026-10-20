@@ -1,0 +1,43 @@
+COMPRAFÁCIL - PROYECTO DJANGO CORREGIDO
+
+REQUISITOS
+- Python 3.10 o superior
+- Internet para instalar las dependencias y cargar Bootstrap desde CDN
+
+INICIAR EN WINDOWS (PowerShell)
+1. Descomprime la carpeta Comprafacil.
+2. Abre PowerShell dentro de esa carpeta (donde está manage.py).
+3. Crea un entorno virtual:
+   py -m venv venv
+4. Actívalo:
+   .\venv\Scripts\Activate.ps1
+   Si PowerShell bloquea la activación, ejecuta en esa terminal:
+   Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+   y vuelve a activar el entorno.
+5. Instala las dependencias:
+   python -m pip install --upgrade pip
+   pip install -r requirements.txt
+6. Aplica las migraciones:
+   python manage.py migrate
+7. Crea un usuario administrador para entrar:
+   python manage.py createsuperuser
+8. Inicia el servidor:
+   python manage.py runserver
+9. Abre http://127.0.0.1:8000/ y entra con el usuario creado.
+
+FUNCIONES
+- Inicio con resumen de compras y proveedores.
+- Crear, consultar, editar y eliminar proveedores.
+- Crear, consultar, editar y eliminar compras.
+- Búsqueda de proveedores y filtros de compras.
+- Acceso protegido mediante inicio de sesión.
+
+CAMBIOS REALIZADOS
+- Las eliminaciones ahora requieren POST y token CSRF, en vez de borrarse mediante un enlace GET.
+- Configuración de SQLite explícita para ejecución local en Windows; DATABASE_URL permite configurar otra base de datos.
+- DEBUG y ALLOWED_HOSTS se leen desde variables de entorno.
+- Se excluyeron el entorno virtual, el repositorio .git y el archivo .env original para evitar incluir dependencias específicas de un equipo o secretos.
+
+NOTA
+Se conserva la base de datos SQLite que venía en el archivo original. Si contiene datos de prueba antiguos, puedes conservarlos o, si quieres iniciar desde cero, hacer una copia de seguridad y borrar db.sqlite3 antes de ejecutar migrate.
+No uses la clave secreta predeterminada en producción.
