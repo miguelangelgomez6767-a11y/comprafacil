@@ -87,3 +87,10 @@ class Compra(models.Model):
         verbose_name = "Compra"
         verbose_name_plural = "Compras"
         ordering = ['-fecha_compra', '-id']
+
+sustentacion = models.CharField(
+    max_length=255, 
+    blank=True, 
+    null=True, 
+    verbose_name="Sustentación"
+)
