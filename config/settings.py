@@ -11,6 +11,10 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-default-key')
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = ['*']
+
+# Definimos ROOT_URLCONF aquí arriba para evitar que se omita
+ROOT_URLCONF = 'config.urls'
+
 # 1. Configuración de Plantillas (Templates)
 TEMPLATES = [
     {
@@ -62,9 +66,7 @@ DATABASES = {
     )
 }
 
-
 # Estáticos
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'static']
-ROOT_URLCONF = 'config.urls'
